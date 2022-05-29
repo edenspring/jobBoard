@@ -1,18 +1,20 @@
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
 import logger from 'redux-logger'
-import thunk from redux - thunk
+import userReducer from './user';
+import thunk from "redux-thunk"
 
 const bigReducer = combineReducers({
-
+    user: userReducer,
 });
 
 let extra = applyMiddleware(thunk)
 
-if (process.env.NODE_ENV !== "production") {
-    const devTools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-    extra = devTools(applyMiddleware(thunk, logger))
-}
+//nextJS has no window D: how to make better??
+// if ((process.env.NODE_ENV !== "production") && (typeof window !== undefined)) {
+//     const devTools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+//     extra = devTools(applyMiddleware(thunk, logger))
+// }
 
 export default function defaultStore(currentState) {
-     return createStore(bigReducer, currentState, extra)
+    return createStore(bigReducer, currentState, extra)
 }
