@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useRouter } from 'next/router'
-import { login } from '../store/user'
+import { login } from '../src/store/user'
 
 
 export default function LoginPage() {

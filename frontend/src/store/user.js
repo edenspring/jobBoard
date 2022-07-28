@@ -1,5 +1,5 @@
 import { defaultHead } from "next/head";
-import cookieFetch from "../utilities/cookieFetch";
+import cookieFetch from "../../utilities/cookieFetch";
 
 // define types
 const LOG_IN = 'user/login'
